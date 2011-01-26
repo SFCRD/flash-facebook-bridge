@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+	<head>	 	
+		<title>Facebook API</title>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<div id="flashContent"></div>  
+	</body>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+	<script type="text/javascript" src="javascripts/_utils/browser.js"></script>
+	<script type="text/javascript" src="javascripts/_utils/facebook.js"></script>
+	<script type="text/javascript" src="javascripts/_flash/flash_embed.js"></script>
+	<script type="text/javascript" src="javascripts/_flash/flash_facebook.js"></script>
+	<script type="text/javascript">
+		// Inject values here
+		// Custom JS will override
+		(function() {
+		    $fb.app_id = "107783515931011";
+			$f.app_version = 0000;
+			$f.use_cache_breaker = true;
+			$f.flashvars.debug = $f.debug = $fb.debug = $fbas.debug = true;
+		} ());
+	</script>
+	<script type="text/javascript" src="javascripts/flash_custom.js"></script>
+</html>
