@@ -62,6 +62,8 @@ var $fb = function() {
         },
         that.xd_receiver);
 
+        FB.Canvas.setSize({ width: that.canvas_width, height: that.canvas_height });
+	
         _on_init();
     };
 
@@ -95,15 +97,8 @@ var $fb = function() {
         document.getElementById('fb-root').appendChild(e);
     };
 
-    that.set_canvas_size = function(w, h) {
-        FB.Canvas.setSize({
-            width: w || that.canvas_width,
-            height: h || that.canvas_height
-        });
-    };
-
     that.get_login_status = function() {
-        log("FB: get_login_status")
+        log("FB: get_login_status");
         FB.getLoginStatus(function(response) {
             if (response.session) {
                 // logged in and connected user, someone you know
@@ -157,7 +152,7 @@ var $fb = function() {
     that.ui = function(data, handler) {
         log("FB: ui: event: " + data.method);
         FB.ui(data, _on_event(data.method, handler));
-    }
+    };
 
     // Private Methods
     var _init_listeners = function() {
@@ -197,7 +192,6 @@ var $fb = function() {
         log("FB: _on_init");
         _get_session_from_cookie();
         _init_listeners();
-        that.set_canvas_size();
         that.get_login_status();
         that.on_init();
     };
@@ -226,12 +220,12 @@ var $fb = function() {
     };
 
     var _on_status_change_authorized = function() {
-        log("FB: _on_status_change_authorized - Logged in and connected user, someone you know")
+        log("FB: _on_status_change_authorized - Logged in and connected user, someone you know");
         that.on_status_change_authorized();
     };
 
     var _on_status_change_unauthorized = function() {
-        log("FB: _on_status_change_unauthorized - No user session available, someone you dont know")
+        log("FB: _on_status_change_unauthorized - No user session available, someone you dont know");
         that.on_status_change_unauthorized();
     };
 
@@ -266,7 +260,7 @@ var $fb = function() {
         }
         var arr;
         var pair;
-        for each(pair in pairs) {
+        for (pair in pairs) {
             arr = pair.split("=");
             that.session[arr[0]] = arr[1];
         }

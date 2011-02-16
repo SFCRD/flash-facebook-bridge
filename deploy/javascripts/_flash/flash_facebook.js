@@ -41,16 +41,14 @@ var $fbas = function() {
     };
 
     that.init = function() {
+    	log("FBAS: init");
 
-        $f.on_ready = function() {
-            // Initialize FACEBOOK when FLASH is ready
-            log("FBAS: on_ready");
-            $fb.init();
-        };
+		$fb.on_init = function(args) {
+			$f.init();
+		};
 
         // FB >> JS
         // Listen for events from Facebook
-        $fb.on_init = _on_init;
         $fb.on_login_ok = _on_login_ok;
         $fb.on_login_cancel = _on_login_cancel;
         $fb.on_logout = _on_logout;

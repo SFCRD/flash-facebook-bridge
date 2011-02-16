@@ -10,7 +10,7 @@
     
 	// Init Flash & Bridge
 	$fbas.init();
-    $f.init();
+    $fb.init();
 
 // comment
 } ());

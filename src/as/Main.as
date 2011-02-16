@@ -24,26 +24,21 @@ package
 		{
 			JSBridge.gi.addEventListener( JSBridge.E_READY, function( event : Event ) : void
 			{
-				initFacebook();
+				init();
 			} );
 
 			JSBridge.gi.initialize( loaderInfo );
 		}
 
-		private function initFacebook() : void
+		private function init() : void
 		{
-			Facebook.gi.addEventListener( FacebookEvent.READY, function( event : Event ) : void
-			{
-				initViews();
-			} );
-
 			Facebook.gi.init();
+			initViews();
 		}
 
 		private function initViews() : void
 		{
 			_view = new MainView();
-
 			addChild( _view );
 		}
 	}
